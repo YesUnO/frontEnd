@@ -38,19 +38,22 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <SudokuGrid/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+    /* eslint-disable */
+    import SudokuGrid from './components/games/sudoku/SudokuGrid.vue';
+    import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+      SudokuGrid,
+      HelloWorld
   },
 
   data: () => ({
