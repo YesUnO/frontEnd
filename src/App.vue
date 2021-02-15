@@ -6,7 +6,7 @@
       dark
     >
       <v-avatar size="36px" tile>
-          <v-img src="assets\1 sudoku.png/"/>
+          <v-img src="./assets/logo.png"/>
       </v-avatar>
       <v-app-bar-title class="header">Sarah's Sudoku</v-app-bar-title>
       <v-spacer class="headerSpace"/>
