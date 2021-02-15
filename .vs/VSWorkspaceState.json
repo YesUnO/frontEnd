@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\public\\assets",
+    "\\src",
+    "\\src\\auth",
+    "\\src\\components",
+    "\\src\\components\\games",
+    "\\src\\components\\games\\sudoku",
+    "\\src\\router",
+    "\\src\\store"
+  ],
+  "SelectedNode": "\\src\\store\\GameEnteringModule.js",
+  "PreviewInSolutionExplorer": false
+}

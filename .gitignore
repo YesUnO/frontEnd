@@ -21,3 +21,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.certs/ca.crt
+.certs/ca.key
+.certs/cert.pem
+.certs/key.pem

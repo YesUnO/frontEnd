@@ -5,59 +5,120 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-avatar size="36px" tile>
+          <v-img src="assets\1 sudoku.png/"/>
+      </v-avatar>
+      <v-app-bar-title class="header">Sarah's Sudoku</v-app-bar-title>
+      <v-spacer class="headerSpace"/>
+      <v-tabs v-model="activeTab">
+        <v-tab key="sudoku" to="/">
+          Home
+        </v-tab>
+        <v-tab key="leaderboard" to="/leaderbord">
+          Leader board
+        </v-tab>
+      </v-tabs>
+      <v-spacer/>
+      <login-component v-if="!Credentials.isAuthorized"/>
+      <profile-dropdown v-if="Credentials.isAuthorized"/>       
     </v-app-bar>
 
     <v-main>
-      <SudokuGrid/>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-    /* eslint-disable */
-    import SudokuGrid from './components/games/sudoku/SudokuGrid.vue';
-    import HelloWorld from './components/HelloWorld'
+/* eslint-disable */
+import {mapState} from 'vuex';
+import ProfileDropdown from './components/ProfileDropdown.vue';
+import SudokuGrid from './components/games/sudoku/SudokuGrid.vue';
+import LoginComponent from './components/LoginComponent.vue';
+import LeaderBordChart from './components/LeaderBordChart.vue';
 
 export default {
   name: 'App',
-
   components: {
-      SudokuGrid,
-      HelloWorld
+    SudokuGrid,
+    ProfileDropdown,
+    LoginComponent,
+    LeaderBordChart
   },
 
   data: () => ({
-    //
-  }),
+    activeTab: 'sudoku'
+        }),
+        mounted(){
+        },
+    computed: {
+        ...mapState({
+            User: state => state.userInfo,
+            Credentials: state => state.credentials 
+        })
+        // isAuthenticated: function (){
+        //     return vue.prototype.$auth.isAuthenticated
+        //     }
+    },
+    methods: {
+        
+    }
 };
 </script>
+
+<style>
+    @font-face {
+        font-family: 'Grizzly';
+        src: local('Grizzly'), url('./assets/Grizzly.ttf') format('truetype');
+    }
+
+    .headerSpace{
+      min-width: 100px;
+    }
+
+    .header{
+      font-family: 'Grizzly';
+      font-size: xx-large !important;
+      padding-left:1.5rem !important;
+      color:#BF4EA3;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .btnInGroup{
+      margin-bottom: 2em;
+    }
+    .btn, .btnInGroup{
+      font-weight: 600;
+    }
+    .app-bar{
+      max-width: 1000px;
+    }
+
+
+    .profile-drpdwn{
+      padding-right: .5rem;
+    }
+    .gameName{
+      font-family: 'Grizzly';
+      color: #D58C79;
+      font-weight: 500;
+      font-size: large;
+    }
+
+    #app {
+        font-family: 'Source Sans Pro', sans-serif;
+        /* -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; */
+        text-align: center;
+        font-weight: 600;
+        color: #2D4186;
+        padding-left: 10px;
+        /*margin-top: 60px;*/
+        width: 100%;
+        height: 100%;
+        background: #F6F6F1;
+        overflow-x: hidden;
+        /*overflow-y: scroll;*/
+    }
+</style>
