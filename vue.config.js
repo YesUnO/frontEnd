@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
-    outputDir: 'public',
+    // outputDir: 'public',
     assetsDir: 'assets',
     devServer: {
         https: {
