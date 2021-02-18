@@ -290,8 +290,20 @@ export default {
 
             let idToken = googleAuth.id_token;
             self.$store.commit('setToken',idToken);
-            self.$store.dispatch('user/getGoogleAuth').then(response=>{
-                let payload = {
+            // self.$store.dispatch('user/getGoogleAuth').then(response=>{
+            //     let payload = {
+            //         payloadUser:{
+            //             name:user.name,
+            //             picture:user.picture,
+            //             mail:user.picture,
+            //             nextGame:response.nextGame,
+            //             elo:response.elo,
+            //         },
+                        
+            //         token:response.token};
+            //         self.processSuccesfullLogin(payload);
+            // });
+            let payload = {
                     payloadUser:{
                         name:user.name,
                         picture:user.picture,
@@ -302,7 +314,6 @@ export default {
                         
                     token:response.token};
                     self.processSuccesfullLogin(payload);
-            });
         },
 
         evaluateUserInput(i,name,pass){
