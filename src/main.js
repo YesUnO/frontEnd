@@ -24,6 +24,7 @@ Vue.use(VueAxios, axios);
 
 axios.interceptors.request.use(function(config){
     if (app.$store.state.credentials.token !== ''){
+        config.headers['Origin'] = 'http://saras-sudoku.com'
         config.headers['Authorization'] = `Bearer ${app.$store.state.credentials.token}`;
     }
     return config;

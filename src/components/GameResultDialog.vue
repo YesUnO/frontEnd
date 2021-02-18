@@ -6,10 +6,14 @@
         max-height="800"
         >
             <v-img :src="img">
-                <v-btn
-                @click="GameResult?nextGame():tryAgain()">
-                    {{GameResult?'Play one more':'Try again'}}
-                </v-btn>
+                <v-container fill-height>
+                    <v-col fill-height align-self="end">
+                        <v-btn align="end" class="darkShades--text btn"
+                        @click="GameResult?nextGame():tryAgain()">
+                            {{GameResult?'Play one more':'Try again'}}
+                        </v-btn>
+                    </v-col>
+                </v-container>
             </v-img>
     </v-dialog>
 </template>

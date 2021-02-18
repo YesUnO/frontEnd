@@ -233,19 +233,11 @@ function create() {
 
     self.input.keyboard.on('keydown', function userInput(event) {
         if (keys.includes(event.key)) {
-            let tile= gridLayer.findByIndex(2);
-            // try {
-            //     tile = gridLayer.findByIndex(2);
-            // } catch {
-            //     throw 'yo';
-            // }
+            let tile = gridLayer.findByIndex(2);
             
             if (!!tile && tile.index == 2) {
                 evaluateKeyDownEvent(event,tile);
             }
-            // gridLayer.forEachTile(function (tile) {
-                
-            // },breakInputLoop)
         }
     });
 
@@ -344,19 +336,19 @@ function evaluateKeyDownEvent(event, tile) {
     }
 }
 
-function setCorrectValue(){
-    let x;
-    let y;
-    gridLayer.forEachTile(function (tile) {
-        
-        if (tile.index == 2) {
-            x = tile.x;
-            y = tile.y;
+function setCorrectValue() {
+    let tile = gridLayer.findByIndex(2);
+    if (!!tile && tile.index == 2) {
+        let x = tile.x;
+        let y = tile.y;
+
+        let value = puzzleCorrectSolutionArray[y][x];
+        numbers[x + 'x' + y].setText(value);
+        if (notes[x + 'x' + y].text != '     \n     \n     ') {
+            notes[x + 'x' + y].setText('     \n     \n     ');
         }
-    });
-    let value = puzzleCorrectSolutionArray[y][x];
-    numbers[x + 'x' + y].setText(value);
-    evaluateInput();
+        evaluateInput();
+    }
 }
 
 function numberInput(x, y, value) {

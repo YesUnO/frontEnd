@@ -1,5 +1,7 @@
 <template>
     <v-data-table
+        dense
+        item-class="tableItems"
         :headers="headers"
         :items="champions"
         :items-per-page="20"
@@ -57,5 +59,10 @@ export default {
 }
 </script>
 <style scoped>
-
+    table.v-table tbody td {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    table.v-table tbody th {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
 </style>

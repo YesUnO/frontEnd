@@ -15,7 +15,7 @@
           Home
         </v-tab>
         <v-tab key="leaderboard" to="/leaderbord">
-          Leader board
+          Leaderboard
         </v-tab>
       </v-tabs>
       <v-spacer/>
@@ -94,7 +94,10 @@ export default {
     .app-bar{
       max-width: 1000px;
     }
-
+    .tableItems{
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #2D4186;
+    }
 
     .profile-drpdwn{
       padding-right: .5rem;
