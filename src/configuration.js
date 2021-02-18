@@ -1,3 +1,3 @@
 export default {
-    api: 'http://api.saras-sudoku.com//api'
+    api: 'http://api.saras-sudoku.com/api'
 }
