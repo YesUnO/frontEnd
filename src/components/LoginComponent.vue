@@ -309,11 +309,10 @@ export default {
                         name:user.name,
                         picture:user.picture,
                         mail:user.picture,
-                        nextGame:response.nextGame,
-                        elo:response.elo,
+                        elo:response,
                     },
                         
-                    token:response.token};
+                    token:response};
                     self.processSuccesfullLogin(payload);
         },
 
