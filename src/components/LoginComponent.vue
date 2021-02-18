@@ -303,6 +303,7 @@ export default {
             //         token:response.token};
             //         self.processSuccesfullLogin(payload);
             // });
+            let response;
             let payload = {
                     payloadUser:{
                         name:user.name,
