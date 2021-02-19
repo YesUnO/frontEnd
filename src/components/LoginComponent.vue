@@ -289,7 +289,7 @@ export default {
             };
 
             let idToken = googleAuth.id_token;
-            self.$store.dispatch('user/getGoogleAuth',{token:idToken}).then(response=>{
+            self.$store.dispatch('user/postGoogleAuth',{token:idToken}).then(response=>{
                 let payload = {
                     payloadUser:{
                         name:user.name,

@@ -20,9 +20,9 @@ export default {
             });
         },
 
-        getGoogleAuth(context,payload) {
+        postGoogleAuth(context,payload) {
             return new Promise(function (resolve, reject) {
-                Vue.axios.get(path + '/CreateGoogle/'+payload.token).then(function (response) {
+                Vue.axios.post(path + '/CreateGoogle',{token:payload.token}).then(function (response) {
                     if (response.data == null) {
                         reject(new Error('no results'));
                     }
