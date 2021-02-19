@@ -9,7 +9,7 @@
                 icon
                 v-on="on"
             >
-                <v-avatar size="78px">
+                <v-avatar>
                     <v-img :src="User.picture" />
                 </v-avatar>
             </v-btn>

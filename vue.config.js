@@ -1,5 +1,6 @@
+const fs = require('fs');
+
 module.exports = {
-    // outputDir: 'public',
     assetsDir: 'assets',
     
   "transpileDependencies": [
