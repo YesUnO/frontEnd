@@ -397,12 +397,11 @@ function evaluateSolution() {
         puzzlePlayerSolution += numbers[y + 'x' + x].text;
     });
     let currentGame = store.getters.getCurrentGame;
-    let ranked = store.getters.getRankedState
+    let ranked = store.getters.getRankedState;
     if (puzzlePlayerSolution == currentGame.solution) {
-        
         if (ranked) {
-            store.commit('setCompletedGame', { id: currentGame.id, puzzleEntering: puzzleEntering, puzzleCorrectSolution: puzzleCorrectSolution, elapsedTime: elapsedTime });
             store.dispatch('userGameSolution/post', { game: { id: !!currentGame.id ? currentGame.id : 0, name: currentGame.name, entering: puzzleEntering, solution: puzzleCorrectSolution, difficulity: 0 }, elapsedTime: elapsedTime })
+            store.commit('setCompletedGame');
         }
         store.commit('setGameResult',true);
     }

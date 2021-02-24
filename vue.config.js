@@ -1,7 +1,7 @@
-const fs = require('fs');
+
 
 module.exports = {
-    assetsDir: 'assets',
+  assetsDir: 'assets',
     
   "transpileDependencies": [
     "vuetify"

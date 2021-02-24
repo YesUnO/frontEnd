@@ -50,21 +50,6 @@ export default {
             });
         },
 
-        put(payload) {
-            return new Promise(function (resolve, reject) {
-                Vue.axios.put(path + '/' + payload.id, { id: payload.id, resolvedGameEntering: payload.resolvedGameEntering, user: payload.user }).then(function (response) {
-                    if (response.data == null) {
-                        reject(new Error('no results'));
-                    }
-                    else {
-                        resolve(response);
-                    }
-                }, () => {
-                    reject(new Error('no results'));
-                });
-            });
-        },
-
         delete(payload) {
             return new Promise(function (resolve, reject) {
                 Vue.axios.delete(+ '/' + payload.id).then(function (response) {
