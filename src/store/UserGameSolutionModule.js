@@ -21,7 +21,6 @@ export default {
         },
 
         post(context,payload) {
-            console.log(payload );
             return new Promise(function (resolve, reject) {
                 Vue.axios.post(path, { game: payload.game, elapsedTime:parseFloat(payload.elapsedTime)}).then(function (response) {
                     if (response.data == null) {

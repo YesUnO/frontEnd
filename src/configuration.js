@@ -1,3 +1,3 @@
 export default {
-    api: 'http://localhost:61077/api'
+    api: 'https://api.saras-sudoku.com/api'
 }
