@@ -79,6 +79,7 @@ export default {
         goToProfile(){
             let self = this;
             
+            self.$store.commit('setActiveTab','profile')
             self.$router.push({ path: "/profile" });
             
         }

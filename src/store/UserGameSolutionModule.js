@@ -21,6 +21,7 @@ export default {
         },
 
         post(context,payload) {
+            console.log(payload );
             return new Promise(function (resolve, reject) {
                 Vue.axios.post(path, { game: payload.game, elapsedTime:parseFloat(payload.elapsedTime)}).then(function (response) {
                     if (response.data == null) {
@@ -38,21 +39,6 @@ export default {
         getById(payload) {
             return new Promise(function (resolve, reject) {
                 Vue.axios.get(path + '/' + payload.id).then(function (response) {
-                    if (response.data == null) {
-                        reject(new Error('no results'));
-                    }
-                    else {
-                        resolve(response);
-                    }
-                }, () => {
-                    reject(new Error('no results'));
-                });
-            });
-        },
-
-        put(payload) {
-            return new Promise(function (resolve, reject) {
-                Vue.axios.put(path + '/' + payload.id, { id: payload.id, resolvedGameEntering: payload.resolvedGameEntering, user: payload.user }).then(function (response) {
                     if (response.data == null) {
                         reject(new Error('no results'));
                     }

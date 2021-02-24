@@ -11,8 +11,10 @@ Vue.use(Vuex);
 
 const initialState = {
     gameResult: null,
+    newPasswordDialog: false,
     resultDialog: false,
     ranked: false,
+    activeTab: 'sudoku',
     userInfo:{
 
     },
@@ -51,7 +53,9 @@ export default new Vuex.Store({
     state: {
         gameResult: null,
         resultDialog: false,
+        newPasswordDialog: false,
         ranked: false,
+        activeTab: 'sudoku',
         userInfo:{
 
         },
@@ -115,30 +119,16 @@ export default new Vuex.Store({
             state.currentGame.entering = game.entering;
             state.currentGame.solution = game.solution;
         },
+        setNewPasswordDialog(state,boolean){
+            state.newPasswordDialog = boolean;
+        },
+        setActiveTab(state,tab){
+            state.activeTab = tab;
+        },
         setNewGameFromUnsolved(state){
             Object.assign(state.currentGame,state.unsolvedGames[0]);
         },
-        setCompletedGame(state,game){
-            if (!!game.id) {
-                if (!state.userInfo.completedGames) {
-                    let games = new Array();
-                    games.push(game);
-                    state.userInfo.completedGames = games;
-                }
-                else {
-                    state.userInfo.completedGames.push(game);
-                }
-            }
-            else {
-                if (!state.userInfo.completedNewGames) {
-                    let games = new Array();
-                    games.push(game);
-                    state.userInfo.completedNewGames = games;
-                }
-                else {
-                    state.userInfo.completedNewGames.push(game);
-                }
-            }
+        setCompletedGame(state){
             Object.assign(state.currentGame,initialState.currentGame);
             state.unsolvedGames.shift();
         },
