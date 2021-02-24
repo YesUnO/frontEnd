@@ -110,9 +110,9 @@ export default {
             });
         },
 
-        put(payload) {
+        newPassword(context,payload) {
             return new Promise(function (resolve, reject) {
-                Vue.axios.put(path + '/' + payload.id, { id: payload.id, name: payload.name, resolvedgameEnterings: payload.resolvedgameEnterings, elo: payload.elo }).then(function (response) {
+                Vue.axios.put(path, { newPassword:payload.newPassword }).then(function (response) {
                     if (response.data == null) {
                         reject(new Error('no results'));
                     }

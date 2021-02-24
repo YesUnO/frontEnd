@@ -209,7 +209,6 @@ export default {
                 let payload = {
                     payloadUser:{
                         name:response.data.username,
-                        nextGame:response.data.nextGame,
                         elo:response.data.elo,
                     },
                         
@@ -242,11 +241,10 @@ export default {
                 let payload = {
                     payloadUser:{
                         name:response.data.username,
-                        nextGame:response.data.nextGame,
                         elo:response.data.elo,
                     },
                         
-                    token:response.token};
+                    token:response.data.token};
                     self.processSuccesfullLogin(payload);
                 }, (error)=>{
                     self.processFailedSignin(error)
@@ -298,7 +296,7 @@ export default {
                         elo:response.elo,
                     },
                         
-                    token:response.token};
+                    token:response.data.token};
                     self.processSuccesfullLogin(payload);
             });
         },

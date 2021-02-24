@@ -40,7 +40,7 @@
                                 </v-chip>
                             </v-btn>
                             <v-btn 
-                                :disabled="ranked"
+                                
                                 class="darkShades--text btnInGroup"
                                 @click="hint"
                                 >

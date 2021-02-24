@@ -11,6 +11,8 @@
       <v-app-bar-title class="header">Sarah's Sudoku</v-app-bar-title>
       <v-spacer class="headerSpace"/>
       <v-tabs v-model="activeTab">
+        <v-tab key="profile" class="pa-0 ma-0" style="min-width:0px">
+        </v-tab>
         <v-tab key="sudoku" to="/">
           Home
         </v-tab>
@@ -47,15 +49,23 @@ export default {
   },
 
   data: () => ({
-    activeTab: 'sudoku'
         }),
         mounted(){
         },
     computed: {
         ...mapState({
             User: state => state.userInfo,
-            Credentials: state => state.credentials 
-        })
+            Credentials: state => state.credentials,
+            ActiveTab: state => state.activeTab
+        }),
+        activeTab:{
+          get(){
+            return this.ActiveTab
+          },
+          set(tab){
+            this.$store.commit('setActiveTab',tab)
+          }
+        }
         // isAuthenticated: function (){
         //     return vue.prototype.$auth.isAuthenticated
         //     }
